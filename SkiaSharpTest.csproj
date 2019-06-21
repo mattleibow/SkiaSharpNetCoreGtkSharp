@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <!-- mono's GTK# is 32-bit only -->
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <!-- depending on the platform, use the correct dotnet tool -->
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT' and '$(SelfContained)' != 'true'">
+    <RunCommand Condition="'$(PlatformTarget)' == 'x86'">$(MSBuildProgramFiles32)\dotnet\dotnet</RunCommand>
+    <RunCommand Condition="'$(PlatformTarget)' == 'x64'">$(ProgramW6432)\dotnet\dotnet</RunCommand>
+  </PropertyGroup>
+
+  <!-- we need to include the gtk-sharp dlls as part of the build -->
+  <ItemGroup>
+    <Reference Include="C:\Program Files (x86)\GtkSharp\2.12\lib\gtk-sharp-2.0\*.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.68.0" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.68.0" NoWarn="NU1701" />
+  </ItemGroup>
+
+</Project>

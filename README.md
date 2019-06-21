@@ -3,3 +3,9 @@
 ## Prerequisites
 
  - [GTK#](https://www.mono-project.com/GtkSharp)
+
+## Running
+
+```
+PS> dotnet run
+```

@@ -2,4 +2,4 @@
 
 ## Prerequisites
 
- - (GTK#)[https://www.mono-project.com/GtkSharp]
+ - [GTK#](https://www.mono-project.com/GtkSharp)
